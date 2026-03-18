@@ -27,10 +27,10 @@ const ProductDetailPage = () => {
       }
     };
     fetchProduct();
-  }, [id]);
+  }, [id, navigate]);
 
   const handleAddToCart = () => {
-    for (let i = 0; i < quantity; i++) {
+    for (let i = 0; i < quantity; i += 1) {
       dispatch(addToCart(product));
     }
     toast.success(`${product.name} added to cart!`);
@@ -104,7 +104,7 @@ const ProductDetailPage = () => {
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
                 className="w-6 h-6 flex items-center justify-center text-gray-600 hover:text-indigo-600 font-bold"
               >
-                −
+                -
               </button>
               <span className="font-semibold text-gray-800 w-6 text-center">{quantity}</span>
               <button
